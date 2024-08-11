@@ -1,28 +1,29 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { onUnmounted, reactive } from 'vue'
+import axios from 'axios'
+import { styles } from './stores/counter'
 
-const styles = [
-  `
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: blue;
-`,
-  ``,
-  ``,
-  ``,
-  ``,
-  ``,
-  ``,
-  ``,
-  ``
-]
+const timerId = setInterval(async () => {
+  const syls = (
+    await axios.get<{ group: number; style: string }[]>('https://api.juarce.com/styles/')
+  ).data
+  styles.newStyles(
+    syls.map((aux) => {
+      return aux.style
+    })
+  )
+  console.log(styles)
+}, 10000)
+onUnmounted(() => {
+  clearInterval(timerId)
+})
 </script>
 
 <template>
   <div class="container">
-    <div class="frame" v-for="(style, index) in styles" :style="style">
+    <div class="frame" v-for="(style, index) in styles.style" :style="style">
       <h1>Grupo {{ index + 1 }}</h1>
     </div>
   </div>
