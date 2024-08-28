@@ -30,12 +30,7 @@ export const pages = reactive({
 
 export const styles = reactive({
   style: [
-    `
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: blue;
-`,
+    ``,
     ``,
     ``,
     ``,
