@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/FirstClass.vue'
+import FirstClass from '../views/FirstClass.vue'
 import DeployTest from '@/views/DeployTest.vue'
 
 const router = createRouter({
@@ -8,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: DeployTest
+      component: FirstClass
     },
     {
       path: '/deploy',
