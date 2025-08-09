@@ -5,7 +5,7 @@ import { styles } from '../stores/counter'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const totalUsers = ref(9) // Default to 9 if not specified
+const totalUsers = ref(15) // Default to 15 if not specified
 const offset = ref(0) // Default offset is 0
 
 onMounted(() => {
